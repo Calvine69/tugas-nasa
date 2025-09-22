@@ -21,10 +21,15 @@ $(document).ready(function() {
           media = `<iframe src="${data.url}" frameborder="0" allowfullscreen></iframe>`;
         }
 
+        const copyright = data.copyright
+          ? `<p><strong>Copyright:</strong> ${data.copyright}</p>`
+          : `<p><strong>Copyright:</strong> NASA / Public Domain</p>`;
+
         $("#apod-section").html(`
           <h2>${data.title}</h2>
           ${media}
           <p>${data.explanation}</p>
+          ${copyright}
         `);
       })
       .fail(function() {
